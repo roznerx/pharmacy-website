@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Vintage Apothecary Green */
+  --color-apothecary-green-50: #f0f9f4;
+  --color-apothecary-green-100: #dbf0e3;
+  --color-apothecary-green-200: #b9e1c9;
+  --color-apothecary-green-300: #8bcca7;
+  --color-apothecary-green-400: #5aad7f;
+  --color-apothecary-green-500: #3a8f62;
+  --color-apothecary-green-600: #2a734e;
+  --color-apothecary-green-700: #225c40;
+  --color-apothecary-green-800: #1d4a34;
+  --color-apothecary-green-900: #193d2c;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Vintage Apothecary Cream */
+  --color-apothecary-cream-50: #fdfcfa;
+  --color-apothecary-cream-100: #faf7f2;
+  --color-apothecary-cream-200: #f5efe3;
+  --color-apothecary-cream-300: #ebe2d1;
+  --color-apothecary-cream-400: #dfd0b8;
+  --color-apothecary-cream-500: #d4c0a3;
+  --color-apothecary-cream-600: #c0a786;
+  --color-apothecary-cream-700: #a58767;
+  --color-apothecary-cream-800: #866d54;
+  --color-apothecary-cream-900: #6e5a47;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  /* Vintage Apothecary Brown */
+  --color-apothecary-brown-50: #f7f5f3;
+  --color-apothecary-brown-100: #ede8e3;
+  --color-apothecary-brown-200: #dcd2c7;
+  --color-apothecary-brown-300: #c5b5a4;
+  --color-apothecary-brown-400: #ad9580;
+  --color-apothecary-brown-500: #9a7f66;
+  --color-apothecary-brown-600: #8d6f5a;
+  --color-apothecary-brown-700: #755b4c;
+  --color-apothecary-brown-800: #614c41;
+  --color-apothecary-brown-900: #514037;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Font families */
+  --font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 }
