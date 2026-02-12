@@ -1,7 +1,7 @@
-// components/ContactForm.tsx
 'use client'
 
 import { useState } from 'react'
+import { SITE } from '@/lib/metadata'
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -16,14 +16,34 @@ export function ContactForm() {
     e.preventDefault()
     setStatus('sending')
 
-    // For now, just simulate sending - you can integrate with a service later
-    setTimeout(() => {
-      setStatus('success')
-      setFormData({ name: '', email: '', phone: '', message: '' })
-      
-      // Reset success message after 5 seconds
+    try {
+      const response = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_URL!, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          _subject: `Consulta de ${formData.name} - ${SITE.name}`
+        })
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', phone: '', message: '' })
+        setTimeout(() => setStatus('idle'), 5000)
+      } else {
+        setStatus('error')
+        setTimeout(() => setStatus('idle'), 5000)
+      }
+    } catch {
+      setStatus('error')
       setTimeout(() => setStatus('idle'), 5000)
-    }, 1000)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -66,7 +86,7 @@ export function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             className="w-full px-4 py-3 border-2 border-apothecary-green-200 rounded-lg focus:outline-none focus:border-apothecary-green-600 font-serif transition-colors"
-            placeholder="juan@example.com"
+            placeholder="juan@ejemplo.com"
           />
         </div>
 
@@ -103,10 +123,15 @@ export function ContactForm() {
           ></textarea>
         </div>
 
-        {/* Success Message */}
+        {/* Status Messages */}
         {status === 'success' && (
           <div className="bg-apothecary-green-100 border-2 border-apothecary-green-600 rounded-lg p-4 text-apothecary-green-800 font-serif">
-            ✓ Mensaje enviado con éxito. Nos contactaremos pronto.
+            ✦ Mensaje enviado con éxito. Nos contactaremos a la brevedad.
+          </div>
+        )}
+        {status === 'error' && (
+          <div className="bg-red-50 border-2 border-red-400 rounded-lg p-4 text-red-700 font-serif">
+            ✕ Hubo un error al enviar el mensaje. Por favor intente nuevamente o contáctenos por WhatsApp.
           </div>
         )}
 

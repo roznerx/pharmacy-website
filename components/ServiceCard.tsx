@@ -1,4 +1,3 @@
-// components/ServiceCard.tsx
 interface ServiceCardProps {
   icon: React.ReactNode
   title: string

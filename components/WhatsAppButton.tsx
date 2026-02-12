@@ -1,4 +1,3 @@
-// components/WhatsAppButton.tsx
 'use client'
 
 import { SITE } from '@/lib/metadata'

@@ -173,7 +173,7 @@ export default function Contacto() {
           </h2>
           <div className="bg-white border-4 border-apothecary-green-600 rounded-xl overflow-hidden shadow-2xl">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.7889642956996!2d-58.41891072347!3d-34.64565995720584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccbd5d0c0d2a9%3A0x7c8e0e0e0e0e0e0e!2sTte.%20Gral.%20Juan%20Domingo%20Per%C3%B3n%202401%2C%20Valent%C3%ADn%20Alsina%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1234567890123!5m2!1ses!2sar"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205.0751038773309!2d-58.40426119712646!3d-34.674859496401204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccc906a25a117%3A0x21850165d93b65e3!2sFARMACIA%20San%20Jose!5e0!3m2!1ses!2sar!4v1770859255771!5m2!1ses!2sar"
               width="100%"
               height="450"
               style={{ border: 0 }}
