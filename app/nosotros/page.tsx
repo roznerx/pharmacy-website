@@ -1,4 +1,3 @@
-// app/nosotros/page.tsx
 import Image from 'next/image'
 import { createMetadata, SITE } from '@/lib/metadata'
 
