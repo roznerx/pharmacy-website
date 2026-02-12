@@ -275,7 +275,7 @@ export default function Nosotros() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/contacto"
+              href="/contacto#como-llegar"
               className="inline-flex items-center justify-center px-8 py-4 bg-apothecary-cream-50 text-apothecary-green-800 rounded-lg hover:bg-apothecary-cream-100 transition-all font-serif font-semibold text-lg shadow-lg border-2 border-apothecary-cream-200"
             >
               Cómo llegar
