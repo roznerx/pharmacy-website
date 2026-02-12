@@ -23,7 +23,7 @@ export default function Servicios() {
             Cuidamos su salud con tradición y experiencia
           </h1>
           <p className="text-xl text-apothecary-cream-200 max-w-3xl mx-auto font-serif">
-            Más de 100 años brindando servicios farmacéuticos especializados, 
+            Más de 150 años brindando servicios farmacéuticos especializados, 
             combinando la sabiduría tradicional con el conocimiento moderno.
           </p>
         </div>

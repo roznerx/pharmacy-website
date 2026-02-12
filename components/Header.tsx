@@ -24,7 +24,7 @@ export function Header() {
             </span>
             <span className="flex items-center font-serif">
               <span className="text-apothecary-green-600 mr-2">✦</span>
-              Desde 1950
+              Desde 1880
             </span>
             <span className="flex items-center font-serif">
               <span className="text-apothecary-green-600 mr-2">✦</span>

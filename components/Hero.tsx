@@ -23,7 +23,7 @@ export function Hero() {
             <div className="inline-flex items-center space-x-2 bg-apothecary-green-100 border-2 border-apothecary-green-600 rounded-full px-4 py-2 mb-6">
               <span className="text-apothecary-green-700 text-2xl">✦</span>
               <span className="text-apothecary-green-800 font-serif font-semibold text-sm">
-                Desde 1950
+                Desde 1880
               </span>
             </div>
 
@@ -42,7 +42,7 @@ export function Hero() {
             {/* Subheading */}
             <p className="text-lg sm:text-xl text-apothecary-brown-700 mb-8 font-serif max-w-2xl mx-auto lg:mx-0">
               Especialistas en homeopatía, hierbas medicinales y recetas magistrales. 
-              Una tradición familiar que cuida de su salud hace más de 100 años.
+              Una tradición familiar que cuida de su salud hace más de 100 .
             </p>
 
             {/* Service highlights */}
@@ -133,7 +133,7 @@ export function Hero() {
         <div className="mt-16 pt-8 border-t-2 border-apothecary-green-200">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div>
-            <p className="text-3xl font-serif font-bold text-apothecary-green-700">70+</p>
+            <p className="text-3xl font-serif font-bold text-apothecary-green-700">150+</p>
             <p className="text-sm text-apothecary-brown-600 font-serif mt-1">Años de tradición</p>
             </div>
             <div>
