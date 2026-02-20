@@ -1,15 +1,27 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { SITE } from '@/lib/metadata'
 import { useState } from 'react'
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
+
+  const navLinks = [
+    { href: '/', label: 'Inicio' },
+    { href: '/nosotros', label: 'Nosotros' },
+    { href: '/servicios', label: 'Servicios' },
+    { href: '/preguntas-frecuentes', label: 'FAQ' },
+  ];
 
   return (
     <header className="bg-apothecary-cream-50 border-b-2 border-apothecary-green-600">
-      {/* Decorative top border - FULL WIDTH */}
+      {/* Decorative top border */}
       <div className="h-1 bg-gradient-to-r from-apothecary-green-500 via-apothecary-brown-500 to-apothecary-green-500"></div>
       
       {/* Content wrapper */}
@@ -23,7 +35,7 @@ export function Header() {
             </span>
             <span className="flex items-center font-serif">
               <span className="text-apothecary-green-600 mr-2">✦</span>
-              Desde 1880
+              Desde 1950
             </span>
             <span className="flex items-center font-serif">
               <span className="text-apothecary-green-600 mr-2">✦</span>
@@ -74,33 +86,29 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
-            <Link 
-              href="/" 
-              className="px-4 py-2 text-apothecary-brown-700 hover:text-apothecary-green-700 hover:bg-apothecary-cream-200 rounded font-serif font-medium transition-colors"
-            >
-              Inicio
-            </Link>
-            <Link 
-              href="/nosotros" 
-              className="px-4 py-2 text-apothecary-brown-700 hover:text-apothecary-green-700 hover:bg-apothecary-cream-200 rounded font-serif font-medium transition-colors"
-            >
-              Nosotros
-            </Link>
-            <Link 
-              href="/servicios" 
-              className="px-4 py-2 text-apothecary-brown-700 hover:text-apothecary-green-700 hover:bg-apothecary-cream-200 rounded font-serif font-medium transition-colors"
-            >
-              Servicios
-            </Link>
-            <Link 
-              href="/preguntas-frecuentes" 
-              className="px-4 py-2 text-apothecary-brown-700 hover:text-apothecary-green-700 hover:bg-apothecary-cream-200 rounded font-serif font-medium transition-colors"
-            >
-              FAQ
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-4 py-2 rounded font-serif font-medium transition-colors relative ${
+                  isActive(link.href)
+                    ? 'text-apothecary-green-700'
+                    : 'text-apothecary-brown-700 hover:text-apothecary-green-700 hover:bg-apothecary-cream-200'
+                }`}
+              >
+                {link.label}
+                {isActive(link.href) && (
+                  <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-apothecary-green-700"></span>
+                )}
+              </Link>
+            ))}
             <Link 
               href="/contacto" 
-              className="ml-4 px-6 py-2.5 bg-apothecary-green-600 text-apothecary-cream-50 rounded-lg hover:bg-apothecary-green-700 transition-colors font-serif font-medium shadow-md border-2 border-apothecary-green-700"
+              className={`ml-4 px-6 py-2.5 rounded-lg transition-colors font-serif font-medium shadow-md border-2 ${
+                isActive('/contacto')
+                  ? 'bg-apothecary-green-700 text-apothecary-cream-50 border-apothecary-green-800'
+                  : 'bg-apothecary-green-600 text-apothecary-cream-50 border-apothecary-green-700 hover:bg-apothecary-green-700'
+              }`}
             >
               Contacto
             </Link>
@@ -125,42 +133,35 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile menu - OUTSIDE max-width container for full background */}
+      {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t-2 border-apothecary-green-200 bg-apothecary-cream-100/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <nav className="flex flex-col space-y-1 py-4">
-              <Link 
-                href="/" 
-                className="px-4 py-3 text-apothecary-brown-700 hover:bg-apothecary-cream-200 font-serif font-medium transition-colors rounded"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Inicio
-              </Link>
-              <Link 
-                href="/nosotros" 
-                className="px-4 py-3 text-apothecary-brown-700 hover:bg-apothecary-cream-200 font-serif font-medium transition-colors rounded"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Nosotros
-              </Link>
-              <Link 
-                href="/servicios" 
-                className="px-4 py-3 text-apothecary-brown-700 hover:bg-apothecary-cream-200 font-serif font-medium transition-colors rounded"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Servicios
-              </Link>
-              <Link 
-                href="/preguntas-frecuentes" 
-                className="px-4 py-3 text-apothecary-brown-700 hover:bg-apothecary-cream-200 font-serif font-medium transition-colors rounded"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Preguntas Frecuentes
-              </Link>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-4 py-3 rounded font-serif font-medium transition-colors inline-block relative ${
+                    isActive(link.href)
+                      ? 'text-apothecary-green-700'
+                      : 'text-apothecary-brown-700 hover:bg-apothecary-cream-200'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                  {isActive(link.href) && (
+                    <span className="absolute bottom-2 left-4 right-4 h-0.5 bg-apothecary-green-700"></span>
+                  )}
+                </Link>
+              ))}
               <Link 
                 href="/contacto" 
-                className="mx-4 mt-2 px-6 py-3 bg-apothecary-green-600 text-apothecary-cream-50 rounded-lg hover:bg-apothecary-green-700 transition-colors font-serif font-medium text-center shadow-md border-2 border-apothecary-green-700"
+                className={`mx-4 mt-2 px-6 py-3 rounded-lg transition-colors font-serif font-medium text-center shadow-md border-2 ${
+                  isActive('/contacto')
+                    ? 'bg-apothecary-green-700 text-apothecary-cream-50 border-apothecary-green-800'
+                    : 'bg-apothecary-green-600 text-apothecary-cream-50 border-apothecary-green-700 hover:bg-apothecary-green-700'
+                }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contacto
