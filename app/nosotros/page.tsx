@@ -39,8 +39,8 @@ export default function Nosotros() {
               <div className="absolute -inset-4 bg-gradient-to-tl from-apothecary-cream-400 to-apothecary-green-300 rounded-2xl transform -rotate-3"></div>
               <div className="relative bg-apothecary-cream-200 rounded-2xl border-4 border-apothecary-brown-600 aspect-square overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/farmacia-exterior.jpg"
-                  alt="Fachada de Farmacia San José en Valentín Alsina"
+                  src="/images/hero/farmacia-interior.jpg"
+                  alt="Interior de la Farmacia San José en Valentín Alsina"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"

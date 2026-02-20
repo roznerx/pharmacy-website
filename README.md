@@ -1,36 +1,191 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Farmacia San José - Website
 
-## Getting Started
+A modern, vintage-styled pharmacy website built with Next.js, featuring a unique apothecary aesthetic that honors 70+ years of tradition in Valentín Alsina, Buenos Aires.
 
-First, run the development server:
+![Farmacia San José](public/images/hero/farmacia-interior.jpg)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🌿 About
+
+Farmacia San José specializes in homeopathy, medicinal herbs, and magistral formulas. This website serves the local community with:
+
+- Professional pharmacy services
+- Homeopathic medicine
+- Medicinal herbs and phytotherapy
+- Custom magistral prescriptions
+- Dermocosmetics and personal care
+
+## 🎨 Design Philosophy
+
+The design captures the feeling of stepping back in time to a traditional apothecary:
+
+- **Vintage color palette**: Sage green, cream, and warm brown
+- **Serif typography**: Classic, readable, professional
+- **Medicinal herb motifs**: Subtle patterns and icons
+- **Mobile-first approach**: Optimized for neighborhood customers
+- **WhatsApp integration**: Essential for Argentine business communication
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Language**: TypeScript
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Forms**: [Formspree](https://formspree.io)
+- **Analytics**: Google Analytics
+
+## 🚀 Features
+
+### Core Pages
+- **Home**: Hero section with services overview and trust metrics
+- **About Us**: 70-year history with values and timeline
+- **Services**: 6 main service categories with detailed descriptions
+- **FAQ**: Accordion-style answers to common questions
+- **Contact**: Form, map, hours, and contact methods
+
+### Technical Features
+- ✅ Static site generation (SSG)
+- ✅ SEO optimized with metadata and sitemap
+- ✅ Schema.org structured data for local business
+- ✅ Responsive design (mobile-first)
+- ✅ Active navigation highlighting
+- ✅ WhatsApp floating button
+- ✅ Google Analytics integration
+- ✅ Social media preview images (og:image)
+
+## 📁 Project Structure
+```
+pharmacy-website/
+├── app/
+│   ├── layout.tsx              # Root layout with header/footer
+│   ├── page.tsx                # Homepage
+│   ├── nosotros/               # About page
+│   ├── servicios/              # Services page
+│   ├── preguntas-frecuentes/   # FAQ page
+│   ├── contacto/               # Contact page
+│   ├── robots.ts               # SEO robots.txt
+│   └── sitemap.ts              # SEO sitemap.xml
+├── components/
+│   ├── Header.tsx              # Navigation with active links
+│   ├── Footer.tsx              # Footer with hours/contact
+│   ├── Hero.tsx                # Homepage hero section
+│   ├── ServiceCard.tsx         # Reusable service card
+│   ├── ContactForm.tsx         # Contact form with Formspree
+│   ├── WhatsAppButton.tsx      # Floating WhatsApp CTA
+│   ├── FAQAccordion.tsx        # Expandable FAQ items
+│   └── Analytics.tsx           # Google Analytics
+├── lib/
+│   └── metadata.ts             # Site config and SEO helpers
+├── public/
+│   └── images/                 # Static images
+└── globals.css                 # Tailwind + custom theme
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Color Palette
+```css
+/* Vintage Apothecary Green */
+--apothecary-green-600: #2a734e  /* Primary green */
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+/* Vintage Cream */
+--apothecary-cream-50: #fdfcfa   /* Background */
+--apothecary-cream-500: #d4c0a3  /* Accent cream */
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+/* Warm Brown */
+--apothecary-brown-700: #755b4c  /* Text brown */
+--apothecary-brown-900: #514037  /* Dark brown */
+```
 
-## Learn More
+## 🏃 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/pharmacy-website.git
+cd pharmacy-website
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Install dependencies
+npm install
 
-## Deploy on Vercel
+# Create environment variables
+cp .env.example .env.local
+# Edit .env.local with your values
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Run development server
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Environment Variables
+```env
+# Site configuration (already in lib/metadata.ts)
+NEXT_PUBLIC_SITE_URL=https://farmaciasanjose.vercel.app
+
+# Contact form (Formspree)
+NEXT_PUBLIC_FORMSPREE_URL=https://formspree.io/f/xxxxxxxx
+
+# Analytics (Google Analytics)
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+```
+
+## 📦 Build & Deploy
+
+### Build for production
+```bash
+npm run build
+npm start
+```
+
+### Deploy to Vercel
+
+1. Push your code to GitHub
+2. Import project in [Vercel](https://vercel.com)
+3. Add environment variables
+4. Deploy!
+
+Vercel automatically deploys on every push to `main`.
+
+## 🔧 Configuration
+
+### Update Business Info
+
+Edit `lib/metadata.ts` to update:
+- Business name, address, contact info
+- Hours of operation
+- Services offered
+- Social media links
+
+### Google Maps
+
+Replace the iframe `src` in `app/contacto/page.tsx` with your actual Google Maps embed URL.
+
+## 📱 Browser Support
+
+- Chrome (last 2 versions)
+- Firefox (last 2 versions)
+- Safari (last 2 versions)
+- Edge (last 2 versions)
+- Mobile browsers (iOS Safari, Chrome Android)
+
+## 🤝 Contributing
+
+This is a private business website, but suggestions and bug reports are welcome!
+
+## 📄 License
+
+This project is for Farmacia San José and my dad 💚. All rights reserved.
+
+## 📞 Contact
+
+**Farmacia San José**
+- Address: Tte. Gral. Juan Domingo Perón 2401, Valentín Alsina, Buenos Aires
+- Phone: +54 11 4208-8362
+- Email: farmaciasanjose19@gmail.com
+- Website: [farmaciasanjose.vercel.app](https://farmaciasanjose.vercel.app)
+
+---
+
+Made with 💚 in Valentín Alsina, Argentina

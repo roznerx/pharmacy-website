@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export const SITE = {
   name: 'Farmacia San José',
-  url: 'https://farmaciasanjose.com.ar',
+  url: 'https://farmaciasanjose.vercel.app',
   description: 'Farmacia de confianza en Valentín Alsina',
   address: {
     street: 'Tte. Gral. Juan Domingo Perón 2401',

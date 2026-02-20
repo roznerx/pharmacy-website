@@ -118,8 +118,8 @@ export function Hero() {
             {/* Pharmacy image */}
             <div className="relative bg-apothecary-cream-200 rounded-2xl border-4 border-apothecary-brown-600 aspect-square overflow-hidden shadow-2xl">
             <Image
-                src="/images/hero/farmacia-exterior.jpg"
-                alt="Farmacia San José - Fachada exterior en Valentín Alsina"
+                src="/images/hero/farmacia-interior.jpg"
+                alt="Farmacia San José - Interior en Valentín Alsina"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 0vw, 50vw"
