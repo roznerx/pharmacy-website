@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer'
 import { SITE } from '@/lib/metadata'
 import './globals.css'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
+import { Analytics } from '@/components/Analytics'
 
 export const metadata: Metadata = {
   title: {
@@ -77,6 +78,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppButton />
+        <Analytics />
         
         <script
           type="application/ld+json"
